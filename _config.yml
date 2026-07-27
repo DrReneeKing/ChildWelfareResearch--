@@ -1,0 +1,11 @@
+title: "Course Site"
+description: "Course homepage, syllabus, schedule, and public resources."
+theme: jekyll-theme-minimal   # swap for any GitHub Pages-supported theme
+markdown: kramdown
+
+# GitHub Pages navigation (adjust as pages are added)
+header_pages:
+  - syllabus.md
+  - schedule.md
+  - office-hours.md
+  - resources/index.md
