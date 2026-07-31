@@ -17,6 +17,7 @@ Reusable `SKILL.md` instructions Claude understands, one folder per Builder Guid
 | `module-11` | *(optional, self-paced, CS track)* Build a module on parallel computing (MPI/OpenMP) | `course-site/modules/module-XX.md`, `course-toolkit/lecture-prep-notes/`, `course-toolkit/quizzes/`, `course-site/resources/` |
 | `module-12` | *(optional, self-paced, CS track)* Build a module on containerization for reproducibility (Docker → Apptainer) | `course-site/modules/module-XX.md`, `course-toolkit/lecture-prep-notes/`, `course-toolkit/quizzes/`, `course-site/resources/` |
 | `module-13` | *(optional, self-paced, CS track)* Build a module on ML Hub for Tapis (model discovery, inference, fine-tuning) | `course-site/modules/module-XX.md`, `course-toolkit/lecture-prep-notes/`, `course-toolkit/quizzes/`, `course-site/resources/` |
+| `module-14` | *(optional, self-paced)* Build your full LMS presence: branded HTML pages matching your real LMS structure, slide decks, instructor guides — reusable for any course | `course-site/lms-pages/`, `course-toolkit/lecture-prep-notes/*-instructor-guide.md` |
 
 A `SKILL.md` is a markdown file with a short YAML header (`name`, `description`) followed by step-by-step instructions for an AI assistant to follow in conversation with you. Each one assumes `course-site` and `course-toolkit` are cloned as sibling folders and opened together (see `module-00-01`).
 
