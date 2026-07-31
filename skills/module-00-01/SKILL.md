@@ -26,6 +26,10 @@ Confirm they have, from the pre-event checklist: a GitHub account, a Morehouse S
 
 If they haven't picked between Option A and Option B yet, ask: do they want a code editor, or would they rather work entirely through point-and-click apps with no terminal? Either is fine; Option B is usually the faster on-ramp for someone who's never used an editor or terminal before.
 
+## 1.5. Confirm the semester and year
+
+Before anything gets named or written, ask directly: **what semester and year is this course for** (Fall/Spring/Summer + year)? This single piece of information touches almost everything downstream — the syllabus's term line, the schedule's actual calendar dates, any semester-specific policy language, and (later, in `module-10`) exactly what has to change when this same template gets reused for the next offering. Don't let it stay implicit or get inferred later from context; get it confirmed here, in plain terms, and note it somewhere durable (a `CLAUDE.md` note, or the first line of `course-site/schedule.md`) so it doesn't have to be re-asked in a later session.
+
 ## 2. Create both repos from the template
 
 1. Point them to the template repos: [`course-site`](https://github.com/whitneynelson/course-site) and [`course-toolkit`](https://github.com/whitneynelson/course-toolkit).
@@ -112,6 +116,7 @@ git remote set-url origin https://github.com/YOUR-USERNAME/your-repo.git
 ## Checkpoint
 
 Before moving on, confirm with them:
+- [ ] Semester and year confirmed (Fall/Spring/Summer + year) and noted somewhere durable
 - [ ] `course-site` repo created (public) and cloned locally
 - [ ] `course-toolkit` repo created (private) and cloned locally
 - [ ] Both folders open together in the editor, or visible to Claude Desktop via the Filesystem connector

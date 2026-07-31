@@ -25,6 +25,10 @@ For your next course or next cohort:
 - **Carries over cleanly:** repo structure, rubric templates, AI-use rubric, builder-guide walkthrough itself
 - **Needs rebuilding each time:** learning outcomes (course-specific), curriculum map, actual module content, exam questions
 
+## Step 3.5: Confirm the new semester and year — a course update, not a copy-paste
+
+Settle this explicitly: **what semester and year is this next course actually for?** Don't assume "next semester" by default — it could be a full year later, a different term pattern, or a different cohort. Once confirmed, this is a **course update**, not a mechanical find-and-replace: walk through every date-dependent file — the syllabus's term line, every calendar date in `schedule.md`, any semester-specific policy language, office hours/rotation dates if applicable — and flag anything that reads oddly once the new term is substituted in.
+
 ## Step 4: Note it in your 90-day plan
 
 This feeds directly into the next session (11:15 AM, "Building Your 90-Day Implementation Plan"); flag which toolkit artifacts you'd reuse as-is vs. rebuild.
@@ -35,3 +39,4 @@ This feeds directly into the next session (11:15 AM, "Building Your 90-Day Imple
 
 - [ ] Both repos confirmed as GitHub template repos
 - [ ] Clear on what carries over vs. rebuilds for next use
+- [ ] New semester/year confirmed explicitly (not assumed), and every date-dependent file flagged for that update

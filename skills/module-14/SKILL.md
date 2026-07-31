@@ -71,6 +71,12 @@ One consolidated document per module (in `course-toolkit/`) pulling together: th
 
 Once the participant confirms the flagship module's page set, slides, and instructor guide land correctly, repeat Steps 3–5 for each remaining module. Don't batch all of them before the participant has seen and approved the first one — a wrong design direction compounds fast across a dozen modules.
 
+## Step 7: Transfer into the live LMS
+
+Building the pages and decks isn't the finish line — they still have to get into the participant's actual, live LMS course. Write a course-specific transfer workflow document (in `course-toolkit/`, private — it references real institutional details) covering: creating the Module structure to match, importing each page via the LMS's HTML/code editor (validate one page before doing all of them — LMS platforms sanitize some HTML/CSS on save, so confirm the design survives before replicating), uploading slide decks to Files and linking them in, recreating quizzes *natively in the LMS's own quiz tool* rather than ever uploading the private answer-key files directly, building assignments and rubrics from the public-safe content only, and a module-by-module publish-and-Student-View-check sequence rather than publishing everything at once.
+
+**The one rule that carries across every course:** content from the private toolkit repo (answer keys, prep notes, rubric scoring rationale) never gets uploaded to the LMS directly — only manually re-entered into the LMS's own hide-the-answer mechanisms (its quiz tool, its rubric tool). This is the single highest-risk step for an accidental leak, precisely because it's the most mechanical/copy-paste-feeling part of the whole build.
+
 ## Checkpoint
 
 - [ ] Real institution brand colors verified (not guessed), design system built around dropdown/block/callout components
@@ -79,6 +85,7 @@ Once the participant confirms the flagship module's page set, slides, and instru
 - [ ] One slide deck built, file-validated, and visually QA'd (or QA limitations disclosed plainly if the environment couldn't render)
 - [ ] One Instructor's Guide built, consolidating prep notes + quiz + slide deck pointer
 - [ ] Remaining modules replicated using the validated template
+- [ ] LMS transfer workflow document written, with the "never upload toolkit content directly" rule stated explicitly
 
 ## Reusing this for a different course
 

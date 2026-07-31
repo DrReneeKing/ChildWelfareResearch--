@@ -40,6 +40,10 @@ One document per module pulling together the outcome, reading, assignment, sessi
 
 Once you've approved the first module's full set, have your assistant repeat it for the rest.
 
+## Step 7: Transfer into your live LMS
+
+Building the pages doesn't get them in front of students — write a private, course-specific transfer workflow (in `course-toolkit/`) covering: matching your LMS's Module structure, importing each page via its HTML/code editor (validate one page before doing the rest — LMS platforms sanitize some HTML/CSS on save), uploading slide decks and linking them in, and recreating quizzes natively in the LMS's own quiz tool. **Never upload private toolkit content (answer keys, prep notes) directly** — only re-enter it through the LMS's own hide-the-answer mechanisms.
+
 ---
 
 ## Checkpoint
@@ -47,6 +51,7 @@ Once you've approved the first module's full set, have your assistant repeat it 
 - [ ] Brand colors verified, design system built (dropdown/block/callout, not icons, unless requested)
 - [ ] Real LMS structure matched (or a default confirmed)
 - [ ] One module's page set, slide deck, and Instructor's Guide built and reviewed
+- [ ] LMS transfer workflow written, with the "never upload toolkit content directly" rule stated explicitly
 - [ ] Remaining modules replicated from the validated template
 
 Reusable for your next course: same steps, new institution/brand/content inputs.

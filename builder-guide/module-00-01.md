@@ -37,6 +37,10 @@ From the pre-event checklist, you should already have:
 
 ---
 
+## Step 0.5: Confirm the Semester and Year
+
+Before anything gets named or written, settle this: **what semester and year is this course for** (Fall/Spring/Summer + year)? It touches almost everything downstream — the syllabus's term line, the schedule's actual calendar dates, any semester-specific policy language, and later (Module 10) exactly what has to change when you reuse this template for your next offering. Write it down somewhere durable now (a note in `CLAUDE.md`, or the first line of `course-site/schedule.md`) rather than leaving it to get inferred later.
+
 ## Step 1: Create Your Two Repos from the Template
 
 You're not starting from a blank repo; you're using the pre-built template.
@@ -182,6 +186,7 @@ Check **Settings → Connectors → Filesystem** is enabled and pointed at the e
 ## Checkpoint
 
 By the end of this block, you should have:
+- [ ] Semester and year confirmed (Fall/Spring/Summer + year) and noted somewhere durable
 - [ ] `course-site` repo created (public) and cloned locally
 - [ ] `course-toolkit` repo created (private) and cloned locally
 - [ ] Both folders open in your editor and briefly explored, or visible to Claude Desktop via the Filesystem connector
