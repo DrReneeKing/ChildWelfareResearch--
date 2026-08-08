@@ -1,8 +1,42 @@
-# Curriculum Map / Weekly Schedule
+# Curriculum Map / Weekly Schedule — Fall 2026
 
-> Built Day 1–2 (Builder Guide Module 02).
+> Built Day 1–2 (Builder Guide Module 02); dates rolled forward from the Fall 2025 (real, currently-taught) offering to Fall 2026. Source: CAU **Academic Calendar 2026–2027** (official PDF, 05/29/2026 revision — classes begin **Wed, Aug 19, 2026**) + Fall 2025 CUSW 415 syllabus + DSSWE 8-module data-science sequence. Data-science activities remain interleaved with content weeks, not blocked into a separate unit — the pattern the DSSWE 8-module scaffold recommends for a Track III revision.
+>
+> Because Fall 2026 also starts on a Wednesday exactly 364 days (= 52 weeks) after Fall 2025's start, every date below is the direct weekday-preserving roll-forward of the Fall 2025 date — same day-of-week, same sequence position — checked against the verified Fall 2026 holiday calendar. **One date moved**: see note below.
 
-| Week | Module | Topic | Assignment Due |
-|---|---|---|---|
-| 1 | Module 01 | | |
-| 2 | Module 02 | | |
+| Date | Topic | Data-Science Module / Activity Due |
+|---|---|---|
+| 8/19/26 | Introduction, Course Overview | DS Touchpoint: RStudio/Posit Cloud account creation (setup only, no coding) |
+| 8/26/26 | Mandated Reporting | DS Touchpoint: AFCARS/NCANDS orientation (no coding) |
+| 8/28/26 | Child Maltreatment; Overview of Child Welfare History, Policies, and Practices | DS Touchpoint: RStudio interface tour (no coding) |
+| 9/4/26 | Multisystem Approach to Child Welfare Services *(Kenny A. v. Perdue consent decree introduced)* | Data Science Student Influencer Cohort |
+| 9/11/26 | Evidence-Based Practice in Child Welfare | **DSSWE Pre-Survey** (Qualtrics; formerly listed as "Course Presurvey" — 0 pts, required) |
+| 9/16/26 | *(asynchronous)* | Data Science Project: Making Sense of the Numbers — overview; DS Touchpoint: setting a working directory |
+| 9/23/26 | *(asynchronous)* | **DSSWE Module 1 — Introduction to Data Science:** Certificate: Data Science 101; DS Touchpoint: loading a package (`install.packages()`/`library()`); **Ethical and Responsible Use of AI in Social Work** (20 pts, Asynchronous Assignments) |
+| 9/25/26 | Multidimensional Engagement of Families; The Neglect of Children (Case Study) | DS Touchpoint: tidyverse orientation (no coding) |
+| 10/2/26 | Domestic Children of Color in Child Welfare; The Physical Abuse of Children | DS Touchpoint: EDA framing (no coding) |
+| 10/9/26 | Native Children and Families; The Sexual Abuse of Children | DS Touchpoint: Tableau beginner tour (no coding) |
+| 10/16/26 | Immigrant Children and Families; Psychological Maltreatment of Children | DS Touchpoint: RStudio/Posit access check-in |
+| 10/23/26 | Victims of Human Trafficking; Intervention: Reporting, Investigation, Case Management | DS Touchpoint: explore one real AFCARS variable, brief reflection |
+| 10/28/26 | *(asynchronous)* | **DSSWE Module 1:** One Pager: Introduction to Data Science; Data Science Activity #1 — Research Topic, Research Questions, and Variables |
+| 10/30/26 | Trauma-Informed Approaches; The Legal Response to Child Abuse and Neglect; The Family: Roles, Responsibilities, and Rights *(Kenny A. v. Perdue revisited in depth)* | DS Touchpoint: map a research variable to an NCANDS/AFCARS field |
+| 11/4/26 | *(asynchronous)* | **DSSWE Module 2 — Sources and Types of Data:** Certificate: Data Science Methodology |
+| 11/6/26 | Aging Out: Transitioning Youth to Adulthood; Treatment: Physical Abuse and Neglect | — |
+| 11/13/26 | Kinship Foster Care; Permanency Planning; Foster and Adoptive Parents | **DSSWE Modules 3–5 (Tools / R Basics / Wrangling):** Data Science Activities #2–#4 — Creating a Data Science Project in R using Child Welfare data; Annotating R Script Code; Importing Data into RStudio |
+| 11/16/26 | *(asynchronous)* | **DSSWE Modules 5–7 (Wrangling / Analysis / Visualization):** Data Science Activities #5–#8 — Selecting & Filtering Data; `$`, `%in%`, `group_by()`, `summarize()`; Data Visualization with ggplot2; Organizing Project Files |
+| 11/18/26 | Families Formed Through Adoption and Guardianship | **DSSWE Module 7 — Data Visualization:** Certificate: Data Visualization with R |
+| 11/30/26 | Children with Mental Health Needs in Child Welfare | — |
+| 12/2/26 | Crossover Youth: Child Welfare and Juvenile Justice | — |
+| 12/9/26 | *(finals week)* | **DSSWE Module 8 — Ethics, Competencies, and Professional Development:** Incorporating Data Science in Social Work — "Making Sense of the Numbers" (capstone, uses AFCARS data per NDACAN Terms of Use on file); **DSSWE Post-Survey** (Qualtrics; 0 pts, required) due alongside the capstone |
+
+## Notes
+
+- **DSSWE weekly scaffold (new):** every week from 8/19/26 through 11/18/26 now carries at least a light DS Touchpoint (5-minute reading, setup check, or micro-demo — never new coding work competing with that week's real content focus), closing what were previously silent weeks (1–3, 8–9, 10–12). Each touchpoint is mapped to a specific Pre/Post-Survey knowledge-check construct (RStudio structure, working directory, loading packages, tidyverse, EDA, Tableau, data-source awareness/application) so a post-survey score change is traceable to a specific week rather than assumed. Weeks that already carried real DSSWE module content are untouched. No grading weights changed.
+- **DSSWE Pre/Post Survey added:** the Fall 2025 syllabus already had an unlabeled "Course Presurvey" (0 pts, due 9/12/25 → 9/11/26) — this is the DSSWE grant's evaluation instrument, not a course-specific presurvey; relabeled here for clarity. A matching post-survey is added at 12/9/26, paired with the capstone since the post-survey's own question wording ("after completing this course...") assumes course completion. Both instruments are shared across all DSSWE pilot courses (CUSW 301/302/361/404/415/497) via a course-selector question, not built specifically for 415.
+- **Both instruments substantially expanded and verified (as of the current build):** each now runs ~25 questions in the Course Format section alone (~15 minutes total, up from the original 5–10 minute estimate), including: a data-science/social-work relevance matrix; 15 scored knowledge-check questions spanning the AUC Data Science Framework's six areas (Math & Statistics, Programming, Data Curation, Modeling, Ethics) plus R/tidyverse/RStudio and Tableau basics; a screening question confirming each respondent's actual course delivery format (online/hybrid/in-person), gating a modality-impact question via Display Logic (worded prospectively — "how do you expect" — on the pre-survey, retrospectively — "how did" — on the post); and a forward-looking item on graduate-school/career interest in data analysis (also framed prospectively on pre, retrospectively on post). Scoring is configured in Qualtrics for all 15 knowledge-check items. Both surveys now consistently offer the same **$15 gift card** incentive (previously the post-survey only offered extra credit) and state an accurate ~15-minute completion time. The Q6 course-year hardcoding issue (was "Fall 2023") is fixed on both.
+- **Date moved:** the Fall 2025 schedule had this topic on Fri 11/28/25 (the Friday after Thanksgiving), which the 364-day roll-forward would place on **Fri 11/27/26 — an officially University-Closed Thanksgiving day** per the verified 2026–2027 calendar (Thanksgiving Break is Thu–Fri, Nov 26–27, 2026; classes resume Mon, Nov 30). Moved to **Mon 11/30/26**, the first day back, rather than assume Fall 2026 will be open that Friday the way Fall 2025 apparently was.
+- All other dates checked clean against Fall 2026 Labor Day (Mon 9/7), Fall Break (Mon–Tue 10/5–6), and Mid-Term Exam Week (9/28–10/2) — none of the bi-weekly Wed/Fri session dates land on a closed day. The capstone due date (12/9/26) falls inside Final Exams Week (12/7–11/26), mirroring the original Fall 2025 placement during finals.
+- **DSSWE Module 6 (R Basics for Data Science)** still doesn't have a distinct due-date entry — it's folded into the 11/13–11/16 RStudio activity block above, carried over unchanged from the Fall 2025 gap. Flag this for the next revision pass: worth its own checkpoint before students hit wrangling/analysis, per the Module 02 sequencing guidance.
+- This schedule reflects **content weeks bi-weekly on Wednesdays** (per the course meeting pattern) with **data-science activities assigned asynchronously between sessions** — the two tracks run in parallel rather than data science displacing content time.
+- Full grading weights, rubrics, and point values live in `course-toolkit/` (private), not here — see `learning-outcomes-map.md` for the outcome-to-assessment mapping this schedule is built from.
+- **CRN, exact meeting time/modality:** not yet confirmed for Fall 2026 — carried over from Fall 2025 (CRN 23933, Zoom, 10:50am–12:05pm) as a placeholder. Confirm against the registrar's Fall 2026 course schedule before publishing.

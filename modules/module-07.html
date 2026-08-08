@@ -1,0 +1,110 @@
+<!--
+  CUSW 415 Canvas Module Page — Module 07 (inline-style version)
+  Canvas's RCE strips <style> blocks entirely, so this uses the CUSW 403
+  color palette (scarlet #C8102E, gold #EAAA00, parchment #F7F1E4, ink
+  #1B1512, stone #6B6259) via inline style="" attributes only — no
+  classes, no <style> tag, no custom fonts (system serif/sans stacks).
+  Paste this whole block into Canvas's Rich Content Editor HTML view.
+-->
+
+<div style="font-family: Georgia, 'Times New Roman', serif; color:#1B1512; max-width: 900px; margin: 0 auto;">
+  <p style="font-family: Georgia, 'Times New Roman', serif; font-style:italic; font-weight:500; font-size:0.95rem; color:#C8102E; margin:0 0 0.3rem 0;">Module 07 &middot; Foster Care Systems &amp; Hands-On Data Wrangling</p>
+  <h1 style="font-family: Georgia, 'Times New Roman', serif; font-weight:600; font-size:2rem; line-height:1.15; margin:0;">Foster Care Systems &amp; Hands-On Data Wrangling</h1>
+  <div style="margin:1rem 0 0;">
+    <span style="display:inline-block; background:#C8102E; color:#fff; border-radius:100px; padding:0.3rem 0.9rem; font-family:Arial,Helvetica,sans-serif; font-size:0.82rem; margin-right:0.5rem;">Weeks 16&ndash;18</span>
+    <span style="display:inline-block; background:#fff; border:1px solid #E4DFD6; color:#6B6259; border-radius:100px; padding:0.3rem 0.9rem; font-family:Arial,Helvetica,sans-serif; font-size:0.82rem; margin-right:0.5rem;">Fri 11/6/26, Fri 11/13/26, Mon 11/16/26 async</span>
+    <span style="display:inline-block; background:#fff; border:1px solid #E4DFD6; color:#6B6259; border-radius:100px; padding:0.3rem 0.9rem; font-family:Arial,Helvetica,sans-serif; font-size:0.82rem; margin-right:0.5rem;">Data Science Activities #2&ndash;#8</span>
+  </div>
+
+  <div style="height:7px; width:100%; background-image: repeating-linear-gradient(135deg, #C8102E 0 10px, transparent 10px 20px), repeating-linear-gradient(45deg, #EAAA00 0 10px, transparent 10px 20px); background-position: 0 0, 0 100%; background-size: 100% 4px, 100% 4px; background-repeat: repeat, repeat; border-radius:3px; margin: 1rem 0 1.75rem;"></div>
+
+  <h2 style="font-family:Georgia,'Times New Roman',serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.06em; color:#6B6259; margin:2.25rem 0 0.9rem;">Overview</h2>
+  <div style="background:#fff; border:1px solid #E4DFD6; border-radius:14px; padding:1.4rem 1.6rem;">
+    <p style="font-family:Arial,Helvetica,sans-serif; font-size:14.5px; line-height:1.6; margin:0;">This is the busiest data-science stretch of the semester: three DSSWE modules (Tools, R Basics, Data Wrangling) compress into two class weeks, running alongside content on aging out of care and the foster/kinship/permanency system. Students move from "no coding" to actually opening RStudio and running real code on real child welfare data for the first time.</p>
+  </div>
+
+  <h2 style="font-family:Georgia,'Times New Roman',serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.06em; color:#6B6259; margin:2.25rem 0 0.9rem;">Learning Outcome</h2>
+  <div style="background:#fff; border:1px solid #E4DFD6; border-radius:14px; padding:1.4rem 1.6rem;">
+    <p style="font-family:Arial,Helvetica,sans-serif; font-size:14.5px; line-height:1.6; margin:0;">Describe the transition experience for youth aging out of care and the permanency planning process for foster and kinship families; demonstrate basic proficiency navigating RStudio/Posit and performing initial data wrangling on a child welfare dataset.</p>
+  </div>
+
+  <h2 style="font-family:Georgia,'Times New Roman',serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.06em; color:#6B6259; margin:2.25rem 0 0.9rem;">Weekly Breakdown</h2>
+
+  <details open style="border:1px solid #E4DFD6; border-radius:12px; margin-bottom:0.9rem; background:#fff;">
+    <summary>Week 16 (11/6/26) &mdash; Aging Out &amp; Treatment <span style="color:#C8102E;">&#9656;</span></summary>
+    <div style="padding:0 1.3rem 1.3rem; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.6; color:#3a332c;">
+      <ul style="font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.7; margin:0; padding-left:20px;">
+        <li>Aging out: transitioning youth to adulthood without a permanent family &mdash; challenges, supports, and outcomes</li>
+        <li>Treatment approaches for physical abuse and neglect</li>
+      </ul>
+    </div>
+  </details>
+
+  <details style="border:1px solid #E4DFD6; border-radius:12px; margin-bottom:0.9rem; background:#fff;">
+    <summary>Week 17 (11/13/26) &mdash; Kinship Foster Care &amp; Permanency Planning + DSSWE Modules 3&ndash;5 <span style="color:#C8102E;">&#9656;</span></summary>
+    <div style="padding:0 1.3rem 1.3rem; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.6; color:#3a332c;">
+      <ul style="font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.7; margin:0; padding-left:20px;">
+        <li>Kinship foster care: placing children with relatives rather than non-relative foster families</li>
+        <li>Permanency planning: the legal and practice process for achieving a stable, permanent placement</li>
+        <li>Foster and adoptive parents: recruitment, support, and challenges</li>
+        <li><strong>Data Science Activities #2&ndash;#4:</strong> creating a data science project in R using child welfare data (the GCBS practice dataset &mdash; see <code>resources/datasets.md</code>); annotating R script code; importing data into RStudio. See <a href="https://mycanvas.cau.edu/courses/45205/pages/r-and-rstudio-a-beginners-field-guide#directory" style="color:#C8102E;">Working Directory &amp; Projects</a> and <a href="https://mycanvas.cau.edu/courses/45205/pages/r-and-rstudio-a-beginners-field-guide#script" style="color:#C8102E;">Writing &amp; Running a Script</a> in the reference guide.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details style="border:1px solid #E4DFD6; border-radius:12px; margin-bottom:0.9rem; background:#fff;">
+    <summary>Week 18 (11/16/26, asynchronous) &mdash; DSSWE Modules 5&ndash;7 Continued <span style="color:#C8102E;">&#9656;</span></summary>
+    <div style="padding:0 1.3rem 1.3rem; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.6; color:#3a332c;">
+      <ul style="font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.7; margin:0; padding-left:20px;">
+        <li><strong>Data Science Activities #5&ndash;#8:</strong> selecting and filtering data; using <code>$</code>, <code>%in%</code>, <code>group_by()</code>, and <code>summarize()</code>; data visualization with ggplot2; organizing project files. See <a href="https://mycanvas.cau.edu/courses/45205/pages/r-and-rstudio-a-beginners-field-guide#tidyverse" style="color:#C8102E;">tidyverse Core Verbs</a> in the reference guide.</li>
+        <li><strong>AI touchpoint (Week 18):</strong> once Activity #7's ggplot2 visualization is built, ask the course-approved AI tool to help describe or interpret it in plain language (e.g., a county-level caseload chart) &mdash; then check the AI's reading against what the visualization actually shows. A quick, practical rehearsal for the Module 03 AI Ethics assignment's accuracy-checking habit, now applied to your own data instead of a general topic.</li>
+      </ul>
+    </div>
+  </details>
+
+  <h2 style="font-family:Georgia,'Times New Roman',serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.06em; color:#6B6259; margin:2.25rem 0 0.9rem;">Readings</h2>
+  <ul style="list-style:none; margin:0; padding:0; display:grid; gap:0.7rem;">
+    <li style="display:flex; gap:0.9rem; align-items:flex-start; padding:0.9rem 1.1rem; border:1px solid #E4DFD6; border-radius:12px; background:#fff; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.5;"><span style="font-family:Georgia,'Times New Roman',serif; font-weight:600; color:#C8102E; min-width:3.6rem;">Ch.</span><span><em>Introduction to Child Welfare</em> &mdash; chapters on aging out and permanency planning</span></li>
+    <li style="display:flex; gap:0.9rem; align-items:flex-start; padding:0.9rem 1.1rem; border:1px solid #E4DFD6; border-radius:12px; background:#fff; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.5;"><span style="font-family:Georgia,'Times New Roman',serif; font-weight:600; color:#C8102E; min-width:3.6rem;">R4DS</span><span><em>R for Data Science</em> &mdash; chapters on data import, tidy data, and data transformation (dplyr basics)</span></li>
+  </ul>
+
+  <h2 style="font-family:Georgia,'Times New Roman',serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.06em; color:#6B6259; margin:2.25rem 0 0.9rem;">Assignments</h2>
+  <div style="overflow-x:auto;">
+    <table style="border-collapse:collapse; width:100%; font-family:Arial,Helvetica,sans-serif; font-size:14px;">
+      <thead>
+        <tr><th style="text-align:left; padding:0.55rem 0.8rem; border-bottom:1px solid #E4DFD6; font-family:Georgia,'Times New Roman',serif; font-weight:600; color:#6B6259; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.04em;">Assignment</th><th style="text-align:left; padding:0.55rem 0.8rem; border-bottom:1px solid #E4DFD6; font-family:Georgia,'Times New Roman',serif; font-weight:600; color:#6B6259; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.04em;">Due</th><th style="text-align:left; padding:0.55rem 0.8rem; border-bottom:1px solid #E4DFD6; font-family:Georgia,'Times New Roman',serif; font-weight:600; color:#6B6259; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.04em;">Worth</th></tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:0.55rem 0.8rem; border-bottom:1px solid #E4DFD6;">Concept Map: Aging Out / Treatment</td><td style="padding:0.55rem 0.8rem; border-bottom:1px solid #E4DFD6;">~11/6/26</td><td style="padding:0.55rem 0.8rem; border-bottom:1px solid #E4DFD6;">Part of Chapter Summaries/Concept Maps (20% combined)</td></tr>
+        <tr><td style="padding:0.55rem 0.8rem; border-bottom:1px solid #E4DFD6;">Concept Map: Kinship Foster Care / Permanency Planning</td><td style="padding:0.55rem 0.8rem; border-bottom:1px solid #E4DFD6;">~11/13/26</td><td style="padding:0.55rem 0.8rem; border-bottom:1px solid #E4DFD6;">Part of Chapter Summaries/Concept Maps (20% combined)</td></tr>
+        <tr><td style="padding:0.55rem 0.8rem; border-bottom:1px solid #E4DFD6;">Data Science Activities #2&ndash;#4 (RStudio project setup, R script, data import)</td><td style="padding:0.55rem 0.8rem; border-bottom:1px solid #E4DFD6;">11/13/26</td><td style="padding:0.55rem 0.8rem; border-bottom:1px solid #E4DFD6;">Part of Data Science Project (20% combined)</td></tr>
+        <tr><td style="padding:0.55rem 0.8rem; border-bottom:1px solid #E4DFD6;">Data Science Activities #5&ndash;#8 (filtering, wrangling, visualization, file organization)</td><td style="padding:0.55rem 0.8rem; border-bottom:1px solid #E4DFD6;">11/16/26</td><td style="padding:0.55rem 0.8rem; border-bottom:1px solid #E4DFD6;">Part of Data Science Project (20% combined)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 style="font-family:Georgia,'Times New Roman',serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.06em; color:#6B6259; margin:2.25rem 0 0.9rem;">Checklist</h2>
+  <div style="background:#fff; border:1px solid #E4DFD6; border-radius:14px; padding:1.4rem 1.6rem;">
+    <ul style="font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.7; margin:0; padding-left:20px;">
+      <li>Complete both concept maps</li>
+      <li>Complete Data Science Activities #2&ndash;#4 &mdash; get your R project set up and data imported</li>
+      <li>Complete Data Science Activities #5&ndash;#8 &mdash; practice filtering, wrangling, and a first visualization</li>
+      <li>Try the AI touchpoint: have the course-approved AI tool describe your Activity #7 visualization, then check its reading against your actual chart</li>
+      <li>If any RStudio/Posit setup issues surface, reach out to the instructor now &mdash; this is the densest hands-on stretch of the semester</li>
+    </ul>
+  </div>
+
+  <h2 style="font-family:Georgia,'Times New Roman',serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.06em; color:#6B6259; margin:2.25rem 0 0.9rem;">Competency</h2>
+  <div style="background:#fff; border:1px solid #E4DFD6; border-radius:14px; padding:1.4rem 1.6rem;">
+    <p style="font-family:Arial,Helvetica,sans-serif; font-size:14.5px; line-height:1.6; margin:0;"><strong>Comp 7 (Assess)</strong> via permanency-planning case analysis; this module is also where the AUC Data Science Framework's Programming and Data Curation areas get their first real hands-on assessment.</p>
+  </div>
+
+  <div style="background:#FBF3E4; border-left:4px solid #6B6259; border-radius:4px 12px 12px 4px; padding:1.1rem 1.3rem; margin:1.4rem 0 0;">
+    <span style="display:block; font-family:Georgia,'Times New Roman',serif; font-style:italic; font-weight:500; font-size:0.85rem; color:#6B6259; margin-bottom:0.35rem;">Data Science Tie-In</span>
+    <div>
+      <p style="font-family:Arial,Helvetica,sans-serif; font-size:14.5px; line-height:1.6; margin:0;">This is the heart of the semester's data-science skill-building, compressed into a short window by design (per the DSSWE curriculum sequence) so students hit R basics, wrangling, and an early visualization back-to-back while momentum is high. Consistent with lessons learned from prior DSSWE cohorts: if students are going to feel overwhelmed, it's here &mdash; budget extra office-hours time and point students to the GCBS practice dataset (not the restricted AFCARS data) for this hands-on stretch, saving the real federal data for the Module 09 capstone.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:3rem; padding-top:1.25rem; border-top:1px solid #E4DFD6; font-family:Arial,Helvetica,sans-serif; font-size:0.82rem; color:#6B6259;">CUSW 415 &middot; Module 07 &middot; Whitney M. Young, Jr. School of Social Work</div>
+</div>

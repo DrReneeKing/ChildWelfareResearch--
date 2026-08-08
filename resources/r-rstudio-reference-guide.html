@@ -1,0 +1,306 @@
+<!--
+  CUSW 415 Canvas Page — R & RStudio Reference Guide (inline-style version)
+  Canvas's RCE strips <style> blocks and <script> tags entirely, so this uses
+  the CUSW 403/415 color palette (scarlet #C8102E, gold #EAAA00, parchment
+  #F7F1E4, ink #1B1512, stone #6B6259) via inline style="" attributes only —
+  no classes, no <style> tag, no JS. Interactivity comes from native
+  <details>/<summary> accordions, which Canvas's RCE preserves.
+  Paste this whole block into Canvas's Rich Content Editor HTML view.
+
+  Design note: the "Anatomy of a Line of R Code" and "The Four RStudio Panes"
+  sections are modeled on the APA Style 7th-edition reference-guide handout
+  Dr. King supplied — a real annotated example broken into color-coded
+  segments, each paired with an explanation of that segment's rule. Since
+  Canvas strips <script> (no hover tooltips/SVG connector lines), the same
+  idea is done here as color-matched code-segment + legend-card pairs
+  instead of pointer lines — same function, static-HTML-safe.
+-->
+
+<div style="font-family: Georgia, 'Times New Roman', serif; color:#1B1512; max-width: 960px; margin: 0 auto;">
+  <p style="font-family: Georgia, 'Times New Roman', serif; font-style:italic; font-weight:500; font-size:0.95rem; color:#C8102E; margin:0 0 0.3rem 0;">Standing Reference &middot; Data Science Thread</p>
+  <h1 style="font-family: Georgia, 'Times New Roman', serif; font-weight:600; font-size:2rem; line-height:1.15; margin:0;">R &amp; RStudio: A Beginner's Field Guide</h1>
+  <div style="margin:1rem 0 0;">
+    <span style="display:inline-block; background:#C8102E; color:#fff; border-radius:100px; padding:0.3rem 0.9rem; font-family:Arial,Helvetica,sans-serif; font-size:0.82rem; margin-right:0.5rem;">No coding experience needed</span>
+    <span style="display:inline-block; background:#fff; border:1px solid #E4DFD6; color:#6B6259; border-radius:100px; padding:0.3rem 0.9rem; font-family:Arial,Helvetica,sans-serif; font-size:0.82rem; margin-right:0.5rem;">Bookmark this page &mdash; you'll return to it all semester</span>
+  </div>
+
+  <div style="height:7px; width:100%; background-image: repeating-linear-gradient(135deg, #C8102E 0 10px, transparent 10px 20px), repeating-linear-gradient(45deg, #EAAA00 0 10px, transparent 10px 20px); background-position: 0 0, 0 100%; background-size: 100% 4px, 100% 4px; background-repeat: repeat, repeat; border-radius:3px; margin: 1rem 0 1.75rem;"></div>
+
+  <div style="background:#fff; border:1px solid #E4DFD6; border-radius:14px; padding:1.4rem 1.6rem;">
+    <p style="font-family:Arial,Helvetica,sans-serif; font-size:14.5px; line-height:1.6; margin:0;">This page is a standing reference, not a one-time reading &mdash; the same page every DS Touchpoint and Data Science Activity in Modules 01&ndash;09 points back to. You don't need to read it front-to-back before Week 1; jump to whatever you're stuck on, whenever you're stuck on it. Every example uses the same kind of child-welfare data (AFCARS, NCANDS, GCBS) this course already asks you to work with &mdash; see <code>resources/datasets.md</code>.</p>
+  </div>
+
+  <h2 style="font-family:Georgia,'Times New Roman',serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.06em; color:#6B6259; margin:2.25rem 0 0.9rem;">Jump to a Topic</h2>
+  <div style="background:#F7F1E4; border-radius:14px; padding:1.2rem 1.4rem;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem 1.5rem; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.9;">
+      <div><a href="#anatomy" style="color:#C8102E;">1. Anatomy of a Line of R Code</a></div>
+      <div><a href="#panes" style="color:#C8102E;">2. The Four RStudio Panes</a></div>
+      <div><a href="#syntax" style="color:#C8102E;">3. R Syntax Basics</a></div>
+      <div><a href="#packages" style="color:#C8102E;">4. Packages</a></div>
+      <div><a href="#directory" style="color:#C8102E;">5. Working Directory &amp; Projects</a></div>
+      <div><a href="#script" style="color:#C8102E;">6. Writing &amp; Running a Script</a></div>
+      <div><a href="#markdown" style="color:#C8102E;">7. R Markdown</a></div>
+      <div><a href="#tidyverse" style="color:#C8102E;">8. tidyverse Core Verbs</a></div>
+      <div><a href="#haven" style="color:#C8102E;">9. haven (Importing SPSS/Stata/SAS)</a></div>
+      <div><a href="#psych" style="color:#C8102E;">10. psych (Descriptives)</a></div>
+      <div><a href="#shortcuts" style="color:#C8102E;">11. Keyboard Shortcuts</a></div>
+    </div>
+  </div>
+
+  <!-- ================= 1. ANATOMY OF A LINE OF R CODE ================= -->
+  <h2 id="anatomy" style="font-family:Georgia,'Times New Roman',serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.06em; color:#6B6259; margin:2.5rem 0 0.9rem;">1. Anatomy of a Line of R Code</h2>
+  <div style="background:#fff; border:1px solid #E4DFD6; border-radius:14px; padding:1.4rem 1.6rem;">
+    <p style="font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.6; margin:0 0 1rem;">Here's one real line of R code you'll write during the Module 07 wrangling activities &mdash; the kind that counts a child welfare caseload by county. Every colored piece below is explained in the matching-colored card underneath. Same idea as a diagrammed sentence: color ties a piece of code to its explanation.</p>
+
+    <div style="background:#1B1512; border-radius:10px; padding:1.1rem 1.3rem; font-family:'Courier New',Courier,monospace; font-size:14px; line-height:2.1; overflow-x:auto; white-space:nowrap;">
+      <span style="background:#FBEAEA; color:#8a0c20; padding:0.15rem 0.4rem; border-radius:4px;">gcbs_data</span><span style="color:#e8e2d8;"> </span><span style="background:#EAAA00; color:#1B1512; padding:0.15rem 0.4rem; border-radius:4px; font-weight:700;">|&gt;</span><span style="color:#e8e2d8;"><br>&nbsp;&nbsp;</span><span style="background:#FDF6E3; color:#8a6300; padding:0.15rem 0.4rem; border-radius:4px;">filter(state == "GA")</span><span style="color:#e8e2d8;"> </span><span style="background:#EAAA00; color:#1B1512; padding:0.15rem 0.4rem; border-radius:4px; font-weight:700;">|&gt;</span><span style="color:#e8e2d8;"><br>&nbsp;&nbsp;</span><span style="background:#F2F0ED; color:#4a453f; padding:0.15rem 0.4rem; border-radius:4px;">group_by(county)</span><span style="color:#e8e2d8;"> </span><span style="background:#EAAA00; color:#1B1512; padding:0.15rem 0.4rem; border-radius:4px; font-weight:700;">|&gt;</span><span style="color:#e8e2d8;"><br>&nbsp;&nbsp;</span><span style="background:#FBEAEA; color:#8a0c20; padding:0.15rem 0.4rem; border-radius:4px;">summarize(</span><span style="background:#e8dff0; color:#4a2e6b; padding:0.15rem 0.4rem; border-radius:4px;">n_cases = n()</span><span style="background:#FBEAEA; color:#8a0c20; padding:0.15rem 0.4rem; border-radius:4px;">)</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin-top:1.2rem;">
+      <div style="border-left:4px solid #C8102E; background:#FBEAEA; border-radius:4px 10px 10px 4px; padding:0.7rem 0.9rem;">
+        <p style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; margin:0;"><strong style="color:#8a0c20;">gcbs_data</strong> &mdash; the data frame you're starting from. Just a name; it's whatever you called your dataset when you imported it (see Section 5).</p>
+      </div>
+      <div style="border-left:4px solid #EAAA00; background:#FDF6E3; border-radius:4px 10px 10px 4px; padding:0.7rem 0.9rem;">
+        <p style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; margin:0;"><strong style="color:#8a6300;">|&gt; (the pipe)</strong> &mdash; reads as "and then." It takes what's on its left and feeds it into the next line as the first ingredient. Chains steps into one readable sentence instead of nesting parentheses. Type it with <strong>Cmd/Ctrl + Shift + M</strong>.</p>
+      </div>
+      <div style="border-left:4px solid #EAAA00; background:#FDF6E3; border-radius:4px 10px 10px 4px; padding:0.7rem 0.9rem;">
+        <p style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; margin:0;"><strong style="color:#8a6300;">filter(state == "GA")</strong> &mdash; keep only the rows where this condition is true. Note the double equals sign (<code>==</code>) &mdash; that's "is equal to," a question. A single <code>=</code> would try to assign a value instead.</p>
+      </div>
+      <div style="border-left:4px solid #6B6259; background:#F2F0ED; border-radius:4px 10px 10px 4px; padding:0.7rem 0.9rem;">
+        <p style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; margin:0;"><strong style="color:#4a453f;">group_by(county)</strong> &mdash; from here on, do everything separately for each county, like sorting a stack of case files into piles before counting each pile.</p>
+      </div>
+      <div style="border-left:4px solid #C8102E; background:#FBEAEA; border-radius:4px 10px 10px 4px; padding:0.7rem 0.9rem;">
+        <p style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; margin:0;"><strong style="color:#8a0c20;">summarize( ... )</strong> &mdash; collapse each group (each county's pile) down to one summary row. Parentheses wrap what's inside; R runs the innermost logic first.</p>
+      </div>
+      <div style="border-left:4px solid #8a5cc4; background:#F3EEFA; border-radius:4px 10px 10px 4px; padding:0.7rem 0.9rem;">
+        <p style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; margin:0;"><strong style="color:#4a2e6b;">n_cases = n()</strong> &mdash; the actual summary: create a new column called <code>n_cases</code>, set equal to <code>n()</code> (a function that just counts rows). A single <code>=</code> here is correct &mdash; inside a function call, <code>=</code> assigns a value to a named argument, it doesn't ask a question.</p>
+      </div>
+    </div>
+    <p style="font-family:Arial,Helvetica,sans-serif; font-size:12.5px; line-height:1.5; color:#6B6259; margin:0.9rem 0 0; font-style:italic;">Notice <code>==</code> vs. <code>=</code> shows up twice above with two different jobs &mdash; that trips up almost everyone at first. If a script throws an error, check that one character before anything else.</p>
+  </div>
+
+  <!-- ================= 2. THE FOUR RSTUDIO PANES ================= -->
+  <h2 id="panes" style="font-family:Georgia,'Times New Roman',serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.06em; color:#6B6259; margin:2.5rem 0 0.9rem;">2. The Four RStudio Panes</h2>
+  <div style="background:#fff; border:1px solid #E4DFD6; border-radius:14px; padding:1.4rem 1.6rem;">
+    <p style="font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.6; margin:0 0 1rem;">When RStudio/Posit Cloud opens, the window is divided into four quadrants. Same color-matching idea as above &mdash; each quadrant's label below matches its explanation card.</p>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:6px; border:2px solid #1B1512; border-radius:10px; overflow:hidden; height:220px;">
+      <div style="background:#FBEAEA; padding:0.8rem; display:flex; flex-direction:column; justify-content:space-between;">
+        <span style="font-family:Arial,Helvetica,sans-serif; font-weight:700; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; color:#8a0c20;">Source</span>
+        <span style="font-family:'Courier New',monospace; font-size:11px; color:#8a0c20; opacity:0.7;">your_script.R</span>
+      </div>
+      <div style="background:#F3EEFA; padding:0.8rem; display:flex; flex-direction:column; justify-content:space-between;">
+        <span style="font-family:Arial,Helvetica,sans-serif; font-weight:700; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; color:#4a2e6b;">Environment / History</span>
+        <span style="font-family:'Courier New',monospace; font-size:11px; color:#4a2e6b; opacity:0.7;">gcbs_data &nbsp; 1,204 obs.</span>
+      </div>
+      <div style="background:#FDF6E3; padding:0.8rem; display:flex; flex-direction:column; justify-content:space-between;">
+        <span style="font-family:Arial,Helvetica,sans-serif; font-weight:700; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; color:#8a6300;">Console</span>
+        <span style="font-family:'Courier New',monospace; font-size:11px; color:#8a6300; opacity:0.7;">&gt; </span>
+      </div>
+      <div style="background:#F2F0ED; padding:0.8rem; display:flex; flex-direction:column; justify-content:space-between;">
+        <span style="font-family:Arial,Helvetica,sans-serif; font-weight:700; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; color:#4a453f;">Files / Plots / Packages / Help / Viewer</span>
+        <span style="font-family:'Courier New',monospace; font-size:11px; color:#4a453f; opacity:0.7;">tabs along the bottom-right</span>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin-top:1.2rem;">
+      <div style="border-left:4px solid #C8102E; background:#FBEAEA; border-radius:4px 10px 10px 4px; padding:0.7rem 0.9rem;">
+        <p style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; margin:0;"><strong style="color:#8a0c20;">Source (top-left)</strong> &mdash; where you write and save code as a file (a <code>.R</code> script or <code>.Rmd</code> Markdown document). Nothing here runs until you tell it to (Section 6). This is your permanent, reusable work.</p>
+      </div>
+      <div style="border-left:4px solid #8a5cc4; background:#F3EEFA; border-radius:4px 10px 10px 4px; padding:0.7rem 0.9rem;">
+        <p style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; margin:0;"><strong style="color:#4a2e6b;">Environment / History (top-right)</strong> &mdash; every dataset and variable currently loaded in memory, and what you've typed before. If a dataset you imported isn't listed here, R doesn't know it exists yet.</p>
+      </div>
+      <div style="border-left:4px solid #EAAA00; background:#FDF6E3; border-radius:4px 10px 10px 4px; padding:0.7rem 0.9rem;">
+        <p style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; margin:0;"><strong style="color:#8a6300;">Console (bottom-left)</strong> &mdash; where code actually executes and results print. You can type directly here for a quick one-off check, but anything typed only in the Console is gone when you close RStudio &mdash; it isn't saved anywhere.</p>
+      </div>
+      <div style="border-left:4px solid #6B6259; background:#F2F0ED; border-radius:4px 10px 10px 4px; padding:0.7rem 0.9rem;">
+        <p style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; margin:0;"><strong style="color:#4a453f;">Files / Plots / Packages / Help / Viewer (bottom-right)</strong> &mdash; five tabs sharing one space. <strong>Plots</strong> is where your Module 08 ggplot2 visualizations appear; <strong>Packages</strong> is where you can see (and check off) what's installed; <strong>Help</strong> answers "what does this function actually do?" &mdash; type <code>?filter</code> in the Console to jump straight there.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 3. R SYNTAX BASICS ================= -->
+  <h2 id="syntax" style="font-family:Georgia,'Times New Roman',serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.06em; color:#6B6259; margin:2.5rem 0 0.9rem;">3. R Syntax Basics</h2>
+
+  <details open style="border:1px solid #E4DFD6; border-radius:12px; margin-bottom:0.9rem; background:#fff;">
+    <summary style="padding:0.9rem 1.3rem; font-family:Georgia,'Times New Roman',serif; font-weight:600;">Assignment: putting a value in a box <span style="color:#C8102E;">&#9656;</span></summary>
+    <div style="padding:0 1.3rem 1.3rem; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.7; color:#3a332c;">
+      <div style="background:#1B1512; border-radius:8px; padding:0.8rem 1.1rem; font-family:'Courier New',monospace; font-size:13.5px; color:#e8e2d8; margin-bottom:0.7rem;">county_count &lt;- 159</div>
+      <p style="margin:0;">The arrow <code>&lt;-</code> means "store this value in a named box." Read it right-to-left: "159 goes into <code>county_count</code>." Most R style guides prefer <code>&lt;-</code> over <code>=</code> for assignment (even though <code>=</code> also works) &mdash; type it fast with <strong>Alt/Option + &ndash;</strong>. Box names are case-sensitive and can't start with a number or contain spaces; use underscores instead (<code>county_count</code>, not <code>county count</code>).</p>
+    </div>
+  </details>
+
+  <details style="border:1px solid #E4DFD6; border-radius:12px; margin-bottom:0.9rem; background:#fff;">
+    <summary style="padding:0.9rem 1.3rem; font-family:Georgia,'Times New Roman',serif; font-weight:600;">The four data types you'll actually use <span style="color:#C8102E;">&#9656;</span></summary>
+    <div style="padding:0 1.3rem 1.3rem; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.7; color:#3a332c;">
+      <div style="overflow-x:auto;">
+        <table style="border-collapse:collapse; width:100%; font-size:13.5px;">
+          <thead>
+            <tr><th style="text-align:left; padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:Georgia,'Times New Roman',serif; color:#6B6259; text-transform:uppercase; font-size:0.75rem;">Type</th><th style="text-align:left; padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:Georgia,'Times New Roman',serif; color:#6B6259; text-transform:uppercase; font-size:0.75rem;">Example</th><th style="text-align:left; padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:Georgia,'Times New Roman',serif; color:#6B6259; text-transform:uppercase; font-size:0.75rem;">A child welfare example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6;"><strong>numeric</strong></td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">7, 3.5</td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6;">age at removal</td></tr>
+            <tr><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6;"><strong>character</strong></td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">"Fulton"</td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6;">county name (always in quotes)</td></tr>
+            <tr><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6;"><strong>logical</strong></td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">TRUE, FALSE</td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6;">was the case substantiated?</td></tr>
+            <tr><td style="padding:0.5rem 0.7rem;"><strong>factor</strong></td><td style="padding:0.5rem 0.7rem; font-family:'Courier New',monospace;">"neglect"</td><td style="padding:0.5rem 0.7rem;">maltreatment type &mdash; text, but from a fixed, known list of categories</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </details>
+
+  <details style="border:1px solid #E4DFD6; border-radius:12px; margin-bottom:0.9rem; background:#fff;">
+    <summary style="padding:0.9rem 1.3rem; font-family:Georgia,'Times New Roman',serif; font-weight:600;">Vectors and data frames <span style="color:#C8102E;">&#9656;</span></summary>
+    <div style="padding:0 1.3rem 1.3rem; font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.7; color:#3a332c;">
+      <p style="margin:0 0 0.6rem;">A <strong>vector</strong> is a list of values of the same type, built with <code>c()</code> (short for "combine"):</p>
+      <div style="background:#1B1512; border-radius:8px; padding:0.8rem 1.1rem; font-family:'Courier New',monospace; font-size:13.5px; color:#e8e2d8; margin-bottom:0.7rem;">counties &lt;- c("Fulton", "DeKalb", "Cobb")</div>
+      <p style="margin:0;">A <strong>data frame</strong> is a whole spreadsheet in memory &mdash; rows are cases, columns are variables, and every column is its own vector. <code>gcbs_data</code> in the examples above is a data frame. This is the shape almost everything in the course (AFCARS, NCANDS, GCBS) comes in.</p>
+    </div>
+  </details>
+
+  <!-- ================= 4. PACKAGES ================= -->
+  <h2 id="packages" style="font-family:Georgia,'Times New Roman',serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.06em; color:#6B6259; margin:2.5rem 0 0.9rem;">4. Packages</h2>
+  <div style="background:#fff; border:1px solid #E4DFD6; border-radius:14px; padding:1.4rem 1.6rem;">
+    <p style="font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.6; margin:0 0 1rem;">Base R can do a lot, but most of what this course uses &mdash; <code>tidyverse</code>, <code>haven</code>, <code>psych</code> &mdash; are <strong>packages</strong>: extra toolkits other people wrote and shared. Two separate steps, and beginners often only do one:</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem;">
+      <div style="border:1px solid #E4DFD6; border-radius:10px; padding:0.9rem 1.1rem;">
+        <span style="display:inline-block; background:#C8102E; color:#fff; border-radius:100px; width:22px; height:22px; text-align:center; line-height:22px; font-family:Arial,sans-serif; font-size:12px; font-weight:700; margin-bottom:0.5rem;">1</span>
+        <p style="font-family:Georgia,'Times New Roman',serif; font-weight:600; margin:0 0 0.4rem; font-size:14.5px;">Install it (once, ever)</p>
+        <div style="background:#1B1512; border-radius:8px; padding:0.6rem 0.9rem; font-family:'Courier New',monospace; font-size:13px; color:#e8e2d8;">install.packages("tidyverse")</div>
+        <p style="font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:#6B6259; margin:0.5rem 0 0;">Downloads the toolkit from CRAN onto your computer/cloud instance. You do this once per package, not every session.</p>
+      </div>
+      <div style="border:1px solid #E4DFD6; border-radius:10px; padding:0.9rem 1.1rem;">
+        <span style="display:inline-block; background:#EAAA00; color:#1B1512; border-radius:100px; width:22px; height:22px; text-align:center; line-height:22px; font-family:Arial,sans-serif; font-size:12px; font-weight:700; margin-bottom:0.5rem;">2</span>
+        <p style="font-family:Georgia,'Times New Roman',serif; font-weight:600; margin:0 0 0.4rem; font-size:14.5px;">Load it (every session)</p>
+        <div style="background:#1B1512; border-radius:8px; padding:0.6rem 0.9rem; font-family:'Courier New',monospace; font-size:13px; color:#e8e2d8;">library(tidyverse)</div>
+        <p style="font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:#6B6259; margin:0.5rem 0 0;">Tells this session "I want to use it now." Do this at the top of every script, every time &mdash; installing doesn't mean it's active.</p>
+      </div>
+    </div>
+    <p style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; color:#6B6259; margin:0.9rem 0 0;"><strong>Most common beginner error:</strong> "could not find function" almost always means you skipped step 2 this session &mdash; not that the package isn't installed.</p>
+  </div>
+
+  <!-- ================= 5. WORKING DIRECTORY & PROJECTS ================= -->
+  <h2 id="directory" style="font-family:Georgia,'Times New Roman',serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.06em; color:#6B6259; margin:2.5rem 0 0.9rem;">5. Working Directory &amp; Projects</h2>
+  <div style="background:#fff; border:1px solid #E4DFD6; border-radius:14px; padding:1.4rem 1.6rem;">
+    <p style="font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.6; margin:0 0 1rem;">Your <strong>working directory</strong> is the folder R looks in first when you ask it to open or save a file. Getting this wrong is the #1 reason "file not found" errors happen when a file is sitting right there.</p>
+    <div style="background:#1B1512; border-radius:8px; padding:0.8rem 1.1rem; font-family:'Courier New',monospace; font-size:13.5px; color:#e8e2d8; margin-bottom:0.9rem; line-height:1.9;">
+      getwd() <span style="color:#8a9a8a;"># check where R is currently looking</span><br>
+      setwd("~/cusw415-project") <span style="color:#8a9a8a;"># tell it to look somewhere else</span>
+    </div>
+    <div style="border-left:4px solid #6B6259; background:#F2F0ED; border-radius:4px 10px 10px 4px; padding:0.9rem 1.1rem;">
+      <p style="font-family:Arial,Helvetica,sans-serif; font-size:13.5px; line-height:1.5; margin:0;"><strong>The Module 07 recommendation:</strong> skip <code>setwd()</code> entirely and start every project through <strong>File &rarr; New Project</strong> instead. An RStudio Project (<code>.Rproj</code> file) automatically sets the working directory to wherever the project lives, every time you open it &mdash; no path to get wrong, and it's the setup used for Data Science Activity #8 ("organizing your project files").</p>
+    </div>
+  </div>
+
+  <!-- ================= 6. WRITING & RUNNING A SCRIPT ================= -->
+  <h2 id="script" style="font-family:Georgia,'Times New Roman',serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.06em; color:#6B6259; margin:2.5rem 0 0.9rem;">6. Writing &amp; Running a Script</h2>
+  <div style="background:#fff; border:1px solid #E4DFD6; border-radius:14px; padding:1.4rem 1.6rem;">
+    <p style="font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.6; margin:0 0 1rem;">A <strong>script</strong> is just a plain text file of R code, saved with a <code>.R</code> extension, that you can re-run any time instead of retyping everything in the Console.</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.7rem;">
+      <div style="border:1px solid #E4DFD6; border-radius:10px; padding:0.8rem;">
+        <p style="font-family:Georgia,'Times New Roman',serif; font-weight:600; font-size:13.5px; margin:0 0 0.3rem; color:#C8102E;">New script</p>
+        <p style="font-family:Arial,Helvetica,sans-serif; font-size:12.5px; margin:0;">File &rarr; New File &rarr; R Script, or <strong>Cmd/Ctrl + Shift + N</strong></p>
+      </div>
+      <div style="border:1px solid #E4DFD6; border-radius:10px; padding:0.8rem;">
+        <p style="font-family:Georgia,'Times New Roman',serif; font-weight:600; font-size:13.5px; margin:0 0 0.3rem; color:#C8102E;">Run one line</p>
+        <p style="font-family:Arial,Helvetica,sans-serif; font-size:12.5px; margin:0;">Cursor on the line, then <strong>Cmd/Ctrl + Enter</strong></p>
+      </div>
+      <div style="border:1px solid #E4DFD6; border-radius:10px; padding:0.8rem;">
+        <p style="font-family:Georgia,'Times New Roman',serif; font-weight:600; font-size:13.5px; margin:0 0 0.3rem; color:#C8102E;">Run the whole script</p>
+        <p style="font-family:Arial,Helvetica,sans-serif; font-size:12.5px; margin:0;">The "Source" button, top-right of the Source pane</p>
+      </div>
+    </div>
+    <p style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; color:#6B6259; margin:0.9rem 0 0;">Save often (<strong>Cmd/Ctrl + S</strong>) &mdash; unlike the Console, a saved script survives closing RStudio.</p>
+  </div>
+
+  <!-- ================= 7. R MARKDOWN ================= -->
+  <h2 id="markdown" style="font-family:Georgia,'Times New Roman',serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.06em; color:#6B6259; margin:2.5rem 0 0.9rem;">7. R Markdown</h2>
+  <div style="background:#fff; border:1px solid #E4DFD6; border-radius:14px; padding:1.4rem 1.6rem;">
+    <p style="font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.6; margin:0 0 1rem;">A regular <code>.R</code> script is code only. An <strong>R Markdown</strong> document (<code>.Rmd</code>) mixes code with regular writing &mdash; useful for the Module 09 capstone write-up, where you want your analysis and your explanation of it in the same file. Three parts:</p>
+    <div style="border-left:4px solid #C8102E; background:#FBEAEA; border-radius:4px 10px 10px 4px; padding:0.7rem 0.9rem; margin-bottom:0.6rem;">
+      <p style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; margin:0;"><strong style="color:#8a0c20;">YAML header</strong> &mdash; the block between <code>---</code> lines at the very top, setting the title, author, and output format (e.g., <code>output: html_document</code>).</p>
+    </div>
+    <div style="border-left:4px solid #6B6259; background:#F2F0ED; border-radius:4px 10px 10px 4px; padding:0.7rem 0.9rem; margin-bottom:0.6rem;">
+      <p style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; margin:0;"><strong style="color:#4a453f;">Regular text</strong> &mdash; written in Markdown formatting (<code>**bold**</code>, <code>*italic*</code>, <code># headings</code>) outside any code block.</p>
+    </div>
+    <div style="border-left:4px solid #EAAA00; background:#FDF6E3; border-radius:4px 10px 10px 4px; padding:0.7rem 0.9rem;">
+      <p style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; margin:0;"><strong style="color:#8a6300;">Code chunks</strong> &mdash; fenced by three backticks and <code>{r}</code>, e.g. <code>&#96;&#96;&#96;{r}</code> &hellip; <code>&#96;&#96;&#96;</code>. Code inside runs and its output (a table, a plot) gets embedded right there in the final document.</p>
+    </div>
+    <p style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; color:#6B6259; margin:0.9rem 0 0;">Click <strong>Knit</strong> at the top of the Source pane to turn the whole thing into a finished HTML, PDF, or Word document.</p>
+  </div>
+
+  <!-- ================= 8. TIDYVERSE ================= -->
+  <h2 id="tidyverse" style="font-family:Georgia,'Times New Roman',serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.06em; color:#6B6259; margin:2.5rem 0 0.9rem;">8. tidyverse Core Verbs</h2>
+  <div style="background:#fff; border:1px solid #E4DFD6; border-radius:14px; padding:1.4rem 1.6rem;">
+    <p style="font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.6; margin:0 0 1rem;"><strong>tidyverse</strong> isn't one package &mdash; it's a bundle of packages (including <code>dplyr</code> and <code>ggplot2</code>) built around one shared idea: data should be organized as rows = cases, columns = variables, and a handful of verbs should cover almost everything you'd want to do to it. These are the six you'll use in Modules 07&ndash;08.</p>
+    <div style="overflow-x:auto;">
+      <table style="border-collapse:collapse; width:100%; font-size:13.5px;">
+        <thead>
+          <tr><th style="text-align:left; padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:Georgia,'Times New Roman',serif; color:#6B6259; text-transform:uppercase; font-size:0.75rem;">Verb</th><th style="text-align:left; padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:Georgia,'Times New Roman',serif; color:#6B6259; text-transform:uppercase; font-size:0.75rem;">Does what</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">filter()</td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6;">keeps rows matching a condition</td></tr>
+          <tr><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">select()</td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6;">keeps only specific columns</td></tr>
+          <tr><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">mutate()</td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6;">creates a new column from existing ones</td></tr>
+          <tr><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">group_by()</td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6;">splits data into groups for the next step</td></tr>
+          <tr><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">summarize()</td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6;">collapses each group into one summary row</td></tr>
+          <tr><td style="padding:0.5rem 0.7rem; font-family:'Courier New',monospace;">arrange()</td><td style="padding:0.5rem 0.7rem;">sorts rows by a column's value</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; color:#6B6259; margin:0.9rem 0 0;">The Section 1 example above is <code>filter()</code> + <code>group_by()</code> + <code>summarize()</code> chained with the pipe &mdash; the most common pattern you'll write all semester.</p>
+  </div>
+
+  <!-- ================= 9. HAVEN ================= -->
+  <h2 id="haven" style="font-family:Georgia,'Times New Roman',serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.06em; color:#6B6259; margin:2.5rem 0 0.9rem;">9. haven &mdash; Importing SPSS/Stata/SAS Files</h2>
+  <div style="background:#fff; border:1px solid #E4DFD6; border-radius:14px; padding:1.4rem 1.6rem;">
+    <p style="font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.6; margin:0 0 1rem;">Federal child welfare data (AFCARS, NCANDS) is often distributed as an SPSS file (<code>.sav</code>) rather than a spreadsheet. The <strong>haven</strong> package reads those formats directly into R as a normal data frame.</p>
+    <div style="background:#1B1512; border-radius:8px; padding:0.8rem 1.1rem; font-family:'Courier New',monospace; font-size:13.5px; color:#e8e2d8; line-height:1.9;">
+      library(haven)<br>
+      afcars_data &lt;- read_sav("afcars_2023.sav")
+    </div>
+    <p style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; color:#6B6259; margin:0.9rem 0 0;">Matching functions exist for other formats: <code>read_dta()</code> for Stata, <code>read_sas()</code> for SAS. Same pattern every time &mdash; the function name tells you which format it expects.</p>
+  </div>
+
+  <!-- ================= 10. PSYCH ================= -->
+  <h2 id="psych" style="font-family:Georgia,'Times New Roman',serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.06em; color:#6B6259; margin:2.5rem 0 0.9rem;">10. psych &mdash; Descriptives &amp; Psychometrics</h2>
+  <div style="background:#fff; border:1px solid #E4DFD6; border-radius:14px; padding:1.4rem 1.6rem;">
+    <p style="font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.6; margin:0 0 1rem;">The <strong>psych</strong> package gives quick, readable summary statistics in one line &mdash; useful for the Module 09 capstone's first look at a variable before any deeper analysis.</p>
+    <div style="background:#1B1512; border-radius:8px; padding:0.8rem 1.1rem; font-family:'Courier New',monospace; font-size:13.5px; color:#e8e2d8; line-height:1.9;">
+      library(psych)<br>
+      describe(gcbs_data$age)
+    </div>
+    <p style="font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.5; margin:0.9rem 0 0;"><code>describe()</code> returns mean, standard deviation, min/max, and more in one readable table &mdash; faster than calling <code>mean()</code>, <code>sd()</code>, <code>min()</code>, and <code>max()</code> separately. If your capstone research question involves a multi-item scale, <code>alpha()</code> calculates Cronbach's alpha (a reliability statistic) the same way.</p>
+  </div>
+
+  <!-- ================= 11. KEYBOARD SHORTCUTS ================= -->
+  <h2 id="shortcuts" style="font-family:Georgia,'Times New Roman',serif; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.06em; color:#6B6259; margin:2.5rem 0 0.9rem;">11. Keyboard Shortcuts Cheat Sheet</h2>
+  <div style="background:#fff; border:1px solid #E4DFD6; border-radius:14px; padding:1.4rem 1.6rem;">
+    <div style="overflow-x:auto;">
+      <table style="border-collapse:collapse; width:100%; font-size:13.5px;">
+        <thead>
+          <tr><th style="text-align:left; padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:Georgia,'Times New Roman',serif; color:#6B6259; text-transform:uppercase; font-size:0.75rem;">Action</th><th style="text-align:left; padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:Georgia,'Times New Roman',serif; color:#6B6259; text-transform:uppercase; font-size:0.75rem;">Mac</th><th style="text-align:left; padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:Georgia,'Times New Roman',serif; color:#6B6259; text-transform:uppercase; font-size:0.75rem;">Windows</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6;">Run current line</td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">Cmd + Enter</td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">Ctrl + Enter</td></tr>
+          <tr><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6;">Insert pipe <code>|&gt;</code></td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">Cmd + Shift + M</td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">Ctrl + Shift + M</td></tr>
+          <tr><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6;">Insert assignment <code>&lt;-</code></td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">Option + &ndash;</td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">Alt + &ndash;</td></tr>
+          <tr><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6;">New script</td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">Cmd + Shift + N</td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">Ctrl + Shift + N</td></tr>
+          <tr><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6;">Save script</td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">Cmd + S</td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">Ctrl + S</td></tr>
+          <tr><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6;">Clear the Console</td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">Cmd + L</td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">Ctrl + L</td></tr>
+          <tr><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6;">Comment / uncomment a line</td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">Cmd + Shift + C</td><td style="padding:0.5rem 0.7rem; border-bottom:1px solid #E4DFD6; font-family:'Courier New',monospace;">Ctrl + Shift + C</td></tr>
+          <tr><td style="padding:0.5rem 0.7rem;">Autocomplete a function/variable name</td><td style="padding:0.5rem 0.7rem; font-family:'Courier New',monospace;">Tab</td><td style="padding:0.5rem 0.7rem; font-family:'Courier New',monospace;">Tab</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div style="background:#FBF3E4; border-left:4px solid #6B6259; border-radius:4px 12px 12px 4px; padding:1.1rem 1.3rem; margin:1.75rem 0 0;">
+    <span style="display:block; font-family:Georgia,'Times New Roman',serif; font-style:italic; font-weight:500; font-size:0.85rem; color:#6B6259; margin-bottom:0.35rem;">Where This Fits</span>
+    <div>
+      <p style="font-family:Arial,Helvetica,sans-serif; font-size:14.5px; line-height:1.6; margin:0;">This guide doesn't replace any DS Touchpoint or Data Science Activity &mdash; it's the page they all point back to. Module 01's RStudio account setup, Module 03's <code>install.packages()</code>/<code>library()</code> demo, Module 06's working-directory touchpoint, and Modules 07&ndash;08's wrangling/visualization activities are all here, just gathered in one place organized by topic instead of by week. If a DS Touchpoint references a term you don't recognize, it's almost certainly a section heading above.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:3rem; padding-top:1.25rem; border-top:1px solid #E4DFD6; font-family:Arial,Helvetica,sans-serif; font-size:0.82rem; color:#6B6259;">CUSW 415 &middot; R &amp; RStudio Reference Guide &middot; Whitney M. Young, Jr. School of Social Work</div>
+</div>
